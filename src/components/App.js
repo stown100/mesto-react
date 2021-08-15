@@ -41,6 +41,9 @@ function App() {
     setImagePopupOpen(true);
     setCardData({ link, name })
   }
+  const onDeletePopup = () => {
+    setConfirmPopupOpen(true);
+  }
 
   return (
     <div className="App">
@@ -49,8 +52,8 @@ function App() {
         <Main setAvatarPopupOpen={setAvatarPopupOpen} 
         setProfilePopupOpen={setProfilePopupOpen} 
         setNewCardPopupOpen={setNewCardPopupOpen} 
-        setConfirmPopupOpen={setConfirmPopupOpen} 
-        onCardClick={onCardClick} 
+        onCardClick={onCardClick}
+        onDeletePopup={onDeletePopup}
         userAvatar={userAvatar}
         userName={userName}
         userDescription={userDescription}

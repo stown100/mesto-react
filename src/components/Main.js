@@ -8,7 +8,7 @@ import Spinner from './Spinner';
 function Main({ setAvatarPopupOpen, 
     setProfilePopupOpen, 
     setNewCardPopupOpen, 
-    setConfirmPopupOpen, 
+    onDeletePopup, 
     onCardClick, 
     userAvatar, 
     userName, 
@@ -38,7 +38,7 @@ function Main({ setAvatarPopupOpen,
             <section className="elements">
                 {cardsInfo
                     ? cardsInfo.map(({ link, name, likes, _id }) =>
-                        <Card link={link} name={name} likes={likes} key={_id} onCardClick={onCardClick} setConfirmPopupOpen={setConfirmPopupOpen} />)
+                        <Card link={link} name={name} likes={likes} key={_id} onCardClick={onCardClick} onDeletePopup={onDeletePopup} />)
                     : <h3><Spinner /></h3>}
             </section>
         </main>
