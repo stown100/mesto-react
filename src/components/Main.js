@@ -5,7 +5,7 @@ import closePopupImg from '../images/CloseIcon.svg';
 import '../index.css';
 import PopupWithForm from './PopupWithForm';
 import api from '../utils/Api';
-import { Card } from './Card';
+import Card from './Card';
 import ImagePopup from './ImagePopup';
 import Spinner from './Spinner';
 

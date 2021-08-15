@@ -3,7 +3,7 @@ import deleteImg from '../images/delete.svg';
 import likeImg from '../images/Group.svg';
 
 
-export const Card = ({link, name, likes, onCardClick}) => {
+const Card = ({link, name, likes, onCardClick}) => {
     const handleClick = () => {
         onCardClick(link, name)
     }
@@ -24,3 +24,5 @@ export const Card = ({link, name, likes, onCardClick}) => {
         </article>
     )
 }
+
+export default Card;
