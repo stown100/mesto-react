@@ -79,7 +79,6 @@ function App() {
         </PopupWithForm>
         <PopupWithForm isOpen={confirmPopupOpen} onClose={() => setConfirmPopupOpen(false)} name='delete' title='Вы уверены?' button='Да'>
           <h3 className="form__title form__title-delete">Вы уверены?</h3>
-          <button type="submit" className="form__button form__button-delete">Да</button>
         </PopupWithForm>
         {imagePopupOpen && <ImagePopup {...cardData} setImagePopupOpen={setImagePopupOpen} />}
 
