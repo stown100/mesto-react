@@ -4,13 +4,11 @@ import likeImg from '../images/Group.svg';
 
 
 const Card = ({link, name, likes, onCardClick}) => {
-    const handleClick = () => {
-        onCardClick(link, name)
-    }
+    const handleClick = () => onCardClick(link, name)
     return (
         <article className="element">
             <button type="button" className="element__delete">
-                <img src={deleteImg} className="element__img-delete" atl="Удалить" />
+                <img src={deleteImg} className="element__img-delete" alt="Удалить" />
             </button>
             <img src={link} className="element__img"
                 alt="Картинка" onClick={handleClick}/>

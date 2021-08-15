@@ -1,6 +1,5 @@
-import '../index.css'
-
 const Spinner = () => {
+    debugger
  return (
     <div className="spin-wrapper">
         <div className="spinner">

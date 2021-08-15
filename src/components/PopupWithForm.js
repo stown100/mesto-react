@@ -1,12 +1,10 @@
 import closePopupImg from '../images/CloseIcon.svg';
-import '../index.css';
 
-function PopupWithForm({children, name, title, isOpen, onClose}) {
+function PopupWithForm({children, name, title, isOpen, onClose , button}) {
     const onSubmitClick = (e) => {
         e.preventDefault();
         onClose();
     }
-    
     return (
         <div className={`popup  ${isOpen && "popup_opened"} popup_${name}`}>
             <div className="popup__container popup__container_profile">
@@ -16,7 +14,7 @@ function PopupWithForm({children, name, title, isOpen, onClose}) {
                 <form className="form" action="#" name={`${name}`} noValidate>
                     <h3 className="form__title">{title}</h3>
                     {children}
-                    <button type="submit" className="form__button" disabled onSubmit={onSubmitClick}>Сохранить</button>
+                    <button type="submit" className="form__button" disabled onSubmit={onSubmitClick}>{button}</button>
                 </form>
             </div>
         </div>
