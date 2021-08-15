@@ -77,9 +77,7 @@ function App() {
             name="link" required />
           <span id="link-error" className="form__input-error"></span>
         </PopupWithForm>
-        <PopupWithForm isOpen={confirmPopupOpen} onClose={() => setConfirmPopupOpen(false)} name='delete' title='Вы уверены?' button='Да'>
-          <h3 className="form__title form__title-delete">Вы уверены?</h3>
-        </PopupWithForm>
+        <PopupWithForm isOpen={confirmPopupOpen} onClose={() => setConfirmPopupOpen(false)} name='delete' title='Вы уверены?' button='Да' />
         {imagePopupOpen && <ImagePopup {...cardData} setImagePopupOpen={setImagePopupOpen} />}
 
       </div>
