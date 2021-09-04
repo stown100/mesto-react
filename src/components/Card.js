@@ -4,7 +4,7 @@ import likeImg from '../images/Group.svg';
 import {CurrentUserContext} from '../contexts/CurrentUserContext';
 
 
-const Card = ({link, name, likes, onCardClick, onCardLike, onCardDelete, owner, cardId,}) => {
+const Card = ({link, name, likes, onCardClick, onCardLike, onCardDelete, owner, cardId, onDeletePopup}) => {
     const currentUser = React.useContext(CurrentUserContext);
     // Определяем, являемся ли мы владельцем текущей карточки
     const isOwn =  owner._id === currentUser.currentUser._id;
@@ -19,6 +19,7 @@ const Card = ({link, name, likes, onCardClick, onCardLike, onCardDelete, owner, 
     const handleClick = () => onCardClick(link, name) //Открытие
     const handleLikeClick = () => onCardLike(likes, cardId) //Лайк
     const handleCardDelete = () => onCardDelete(cardId)  //Удаление
+    // const deletePopup =() => onDeletePopup(cardId) !!!
     return (
         <article className="element">
             <button type="button" className={cardDeleteButtonClassName} onClick={handleCardDelete}>

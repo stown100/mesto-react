@@ -9,14 +9,13 @@ import {CurrentUserContext} from '../contexts/CurrentUserContext'; //11
 import EditProfilePopup from './EditProfilePopup';
 import EditAvatarPopup from './EditAvatarPopup';
 import AddPlacePopup from './AddPlacePopup';
-// import Card from './Card';
-// import Spinner from './Spinner';
-
+// import EditDeletePopup from './EditDeletePopup'; !!!
+ 
 function App() {
   const [avatarPopupOpen, setAvatarPopupOpen] = React.useState(false); //Открытие попапа аватара
   const [profilePopupOpen, setProfilePopupOpen] = React.useState(false); // Открытие попапа редактирования профиля
   const [newCardPopupOpen, setNewCardPopupOpen] = React.useState(false); //Открытие попапа добавления новой карточки
-  // const [confirmPopupOpen, setConfirmPopupOpen] = React.useState(false); //Подтвержение удаления карточки
+  // const [confirmPopupOpen, setConfirmPopupOpen] = React.useState(false); //Подтвержение удаления карточки    !!!
   const [imagePopupOpen, setImagePopupOpen] = React.useState(false); //Открытие картинки в большом размере
   const [cardData, setCardData] = React.useState({});
   const [cardsInfo, setCardsInfo] = React.useState([]);
@@ -52,6 +51,7 @@ function App() {
 
 //Удаление карточки
   function handleCardDelete(cardId) {
+    debugger
       api.deleteTask(cardId)
           .then(() => {
               setCardsInfo((state) => state.filter((card) => card._id !== cardId))
@@ -79,8 +79,11 @@ function App() {
     setCardData({ link, name })
   }
 
-  // //Открытие попапа подтверждения
-  // const onDeletePopup = () => {
+  // //Открытие попапа подтверждения   !!!
+  // const onDeletePopup = (_id) => {
+  //   debugger
+  //   setCardData({ _id })
+
   //   setConfirmPopupOpen(true);
   // }
 
@@ -119,13 +122,13 @@ function App() {
           cardsInfo={cardsInfo}
           onCardLike={handleCardLike}
           onCardDelete={handleCardDelete}
-          // onDeletePopup={onDeletePopup} 
+          // onDeletePopup={onDeletePopup} !!!
           />
           <Footer />
           <EditAvatarPopup avatarPopupOpen={avatarPopupOpen} setAvatarPopupOpen={setAvatarPopupOpen} onUpdateAvatar={handelUpdateAvatar} />
           <EditProfilePopup profilePopupOpen={profilePopupOpen} setProfilePopupOpen={setProfilePopupOpen} onUpdateUser={handleUpdateUser} />
           <AddPlacePopup newCardPopupOpen={newCardPopupOpen} setNewCardPopupOpen={setNewCardPopupOpen} handleAddPlaceSubmit={handleAddPlaceSubmit} cardsInfo={cardsInfo} />
-          {/* <PopupWithForm isOpen={confirmPopupOpen} onClose={() => setConfirmPopupOpen(false)} name='delete' title='Вы уверены?' button='Да' /> */}
+          {/* <EditDeletePopup confirmPopupOpen={confirmPopupOpen} setConfirmPopupOpen={setConfirmPopupOpen} onCardDelete={handleCardDelete} cardsInfo={cardsInfo} /> */}
           {//открытие картинки в большом размере
           imagePopupOpen && <ImagePopup {...cardData} setImagePopupOpen={setImagePopupOpen} />}
         </div>

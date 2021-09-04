@@ -10,7 +10,7 @@ function PopupWithForm({children, name, title, isOpen, onClose , button, onSubmi
                 <form onSubmit={onSubmit} className="form" action="#" name={`${name}`} noValidate>
                     <h3 className="form__title">{title}</h3>
                     {children}
-                    <button type="submit" className="form__button" >{button}</button>
+                    <button type="submit" className="form__button">{button}</button>
                 </form>
             </div>
         </div>

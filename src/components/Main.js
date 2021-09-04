@@ -13,7 +13,7 @@ function Main({ setAvatarPopupOpen,
     cardsInfo,
     onCardLike,
     onCardDelete,
-    // onDeletePopup, 
+    onDeletePopup,
 }) {
     const { currentUser } = React.useContext(CurrentUserContext);
 
@@ -43,7 +43,9 @@ function Main({ setAvatarPopupOpen,
                     ? cardsInfo.map(({ link, name, likes, _id, owner }) =>
                         <Card link={link} name={name} likes={likes} key={_id}
                             onCardClick={onCardClick} onCardDelete={onCardDelete}
-                            owner={owner} onCardLike={onCardLike} cardId={_id} />)
+                            owner={owner} onCardLike={onCardLike} cardId={_id}
+                            onDeletePopup={onDeletePopup}
+                            />)
                     : <h3><Spinner /></h3>}
             </section>
         </main>

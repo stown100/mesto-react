@@ -5,8 +5,8 @@ import { CurrentUserContext } from "../contexts/CurrentUserContext";
                                                         //Второй инпут не меняется
 const EditProfilePopup = ({profilePopupOpen, setProfilePopupOpen, onUpdateUser}) => {
     const { currentUser } = React.useContext(CurrentUserContext);
-    const [name, setName] = React.useState({name: ''});
-    const [description, setDescription] = React.useState({about: ''});
+    const [name, setName] = React.useState('');
+    const [description, setDescription] = React.useState('');
     // После загрузки текущего пользователя из API
     // его данные будут использованы в управляемых компонентах.
     React.useEffect(() => {
