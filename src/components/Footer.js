@@ -4,7 +4,7 @@ import React from 'react';
 function Footer() {
     return (
         <footer className="footer">
-            <p className="footer__img">© 2020 Mesto Russia</p>
+            <p className="footer__img">&copy; {new Date().getFullYear()} Mesto Russia</p>
         </footer>
     )
 }

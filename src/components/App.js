@@ -26,9 +26,9 @@ function App() {
     // let myId = null;
     Promise.all([api.getUserInfo(),
     api.getInitialCards()])
-      .then(([userInfoClass, cardInfo]) => {
+      .then(([data, cardInfo]) => {
         //   myId = userInfoClass._id;
-        setCurrentUser(userInfoClass);
+        setCurrentUser(data);
         setCardsInfo(cardInfo);
       })
       .catch(() => {
@@ -51,7 +51,6 @@ function App() {
 
 //Удаление карточки
   function handleCardDelete(cardId) {
-    debugger
       api.deleteTask(cardId)
           .then(() => {
               setCardsInfo((state) => state.filter((card) => card._id !== cardId))
@@ -63,7 +62,6 @@ function App() {
 
     //Добавление карточки
     function handleAddPlaceSubmit({name, link}) {
-      debugger
       api.addTask({name, link})
       .then((newCard) => {
         setCardsInfo([newCard, ...cardsInfo]); 
@@ -90,9 +88,9 @@ function App() {
   //Первый попап отправка данных на сервер
   const handleUpdateUser = ({name, about}) => {
     api.setUserInfo({name, about})
-    .then((userInfoClass) => {
+    .then((data) => {
       setProfilePopupOpen(false);
-      setCurrentUser(userInfoClass);
+      setCurrentUser(data);
     })
     .catch(() => {
       console.log('Что-то сломалось!')
@@ -101,9 +99,9 @@ function App() {
 
   const handelUpdateAvatar = (avatar) => {
     api.setUserAvatar(avatar)
-    .then((userInfoClass) => {
+    .then((data) => {
       setAvatarPopupOpen(false)
-      setCurrentUser(userInfoClass);
+      setCurrentUser(data);
     })
     .catch(() => {
         console.log('Что-то сломалось!')
