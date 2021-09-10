@@ -10,6 +10,7 @@ import EditProfilePopup from './EditProfilePopup';
 import EditAvatarPopup from './EditAvatarPopup';
 import AddPlacePopup from './AddPlacePopup';
 // import EditDeletePopup from './EditDeletePopup'; !!!
+
  
 function App() {
   const [avatarPopupOpen, setAvatarPopupOpen] = React.useState(false); //Открытие попапа аватара
